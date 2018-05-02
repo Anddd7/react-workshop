@@ -1,5 +1,9 @@
 import React from 'react';
-import Dashboard from './components/Dashboard';
+import DashboardContainer from './containers/DashboardContainer';
 
-const App = () => <Dashboard />;
+const App = () => (
+  <div>
+    <DashboardContainer />
+  </div>
+);
 export default App;

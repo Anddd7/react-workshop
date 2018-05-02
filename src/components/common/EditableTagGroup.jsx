@@ -4,21 +4,18 @@ import { Tag, Input, Tooltip, Icon } from 'antd';
 
 class EditableTagGroup extends React.Component {
   propTypes = {
-    value: PropTypes.arrayOf(PropTypes.object).isRequired,
+    value: PropTypes.arrayOf(PropTypes.string).isRequired,
     onChange: PropTypes.func.isRequired,
   }
 
   state = {
-    tags: this.props.value,
     inputVisible: false,
     inputValue: '',
   };
 
   handleClose = (removedTag) => {
-    const tags = this.state.tags.filter(tag => tag !== removedTag);
-    console.log(tags);
-    this.triggerChange(tags);
-    this.setState({ tags });
+    const newTags = this.props.value.filter(tag => tag !== removedTag);
+    this.triggerChange(newTags);
   }
 
   showInput = () => {
@@ -30,17 +27,12 @@ class EditableTagGroup extends React.Component {
   }
 
   handleInputConfirm = () => {
+    const tags = this.props.value;
     const { inputValue } = this.state;
-    let { tags } = this.state;
     if (inputValue && tags.indexOf(inputValue) === -1) {
-      tags = [...tags, inputValue];
+      this.triggerChange([...tags, inputValue]);
     }
-    this.triggerChange(tags);
-    this.setState({
-      tags,
-      inputVisible: false,
-      inputValue: '',
-    });
+    this.setState({ inputVisible: false, inputValue: '' });
   }
 
   triggerChange = (changedValue) => {
@@ -56,7 +48,9 @@ class EditableTagGroup extends React.Component {
   };
 
   render() {
-    const { inputVisible, inputValue, tags } = this.state;
+    const tags = this.props.value;
+    const { inputVisible, inputValue } = this.state;
+
     return (
       <div>
         {tags.map((tag, index) => {

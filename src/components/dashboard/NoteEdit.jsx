@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Input } from 'antd';
 
-import EditableTagGroup from './EditableTagGroup';
+import EditableTagGroup from '../common/EditableTagGroup';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;

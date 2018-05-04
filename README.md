@@ -2,6 +2,11 @@
 To learn react together in olo
 
 # task tracker
+### 20180502
+* redux + ajax
+  * 在异步事件中调用 action 触发事件机制
+
+
 ### 20180428
 简化页面结构 ,方便后续加入 redux 理清逻辑
 * finished dashboard : create/findAll

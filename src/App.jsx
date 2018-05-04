@@ -1,9 +1,5 @@
 import React from 'react';
 import DashboardContainer from './containers/DashboardContainer';
 
-const App = () => (
-  <div>
-    <DashboardContainer />
-  </div>
-);
+const App = () => <DashboardContainer />;
 export default App;

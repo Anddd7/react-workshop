@@ -1,47 +1,18 @@
 import { combineReducers } from 'redux';
-import {
-  ADD_TODO,
-  TOGGLE_TODO,
-  SET_VISIBILITY_FILTER,
-  VisibilityFilters,
-} from '../actions';
+import { GET_NOTES_SUCCESS, GET_NOTES_FAILD } from '../actions';
 
-const { SHOW_ALL } = VisibilityFilters;
-
-// function(old state = initial state , action)
-function visibilityFilter(state = SHOW_ALL, action) {
+const notes = (oldState = [], action) => {
   switch (action.type) {
-    case SET_VISIBILITY_FILTER:
-      return action.filter;
+    case GET_NOTES_SUCCESS:
+      return action.notes;
+    case GET_NOTES_FAILD:
     default:
-      return state;
+      return oldState;
   }
-}
+};
 
-function notes(state = [], action) {
-  switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        action.note,
-      ];
-    case TOGGLE_TODO:
-      return state.map((todo, index) => {
-        if (index === action.index) {
-          return Object.assign({}, todo, {
-            completed: !todo.completed,
-          });
-        }
-        return todo;
-      });
-    default:
-      return state;
-  }
-}
-
-const todoApp = combineReducers({
-  visibilityFilter,
+const rootReducer = combineReducers({
   notes,
 });
 
-export default todoApp;
+export default rootReducer;

@@ -17,7 +17,7 @@ function createTimeLineItem(note) {
         note.tags &&
         <div>
           <hr />
-          {note.tags.map(tag => <Tag>{tag}</Tag>)}
+          {note.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
         </div>
       }
 

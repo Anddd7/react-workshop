@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Affix, Button, Modal } from 'antd';
-import API from '../api/index';
+import { getNotesAsync } from '../actions';
+import API from '../api';
 
 import NoteEdit from './dashboard/NoteEdit';
 import NoteList from './dashboard/NoteListWithTimeLine';
 
 class Dashboard extends React.Component {
-  propTypes = {
+  static propTypes = {
     notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+    dispatch: PropTypes.func.isRequired,
   }
 
   state = {
-    // notes: [],
     visible: false,
     confirmLoading: false,
   }
 
-  // componentDidMount = () => console.log(this.props)
+  componentDidMount = () => getNotesAsync(this.props.dispatch)
 
   NoteEdit = React.createRef();
 

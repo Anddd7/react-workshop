@@ -3,12 +3,18 @@ To learn react together in olo
 
 # task tracker
 ### 20180504
-* 适配新的后端 API, 分页查询/创建 Note
+* 适配新的后端 API
 
 
 ### 20180502
+*  react + redux
+  * 页面触发 action
+  * reducer: action+state => nextState
+  * state 再参与渲染页面
 * redux + ajax
-  * 在异步事件中调用 action 触发事件机制
+  * 类似 alt, start/process/end 分别触发不同的 action, reducer 根据 action 去决定如何处理数据
+  * 在异步事件中调用 action 触发事件机制, 即 ajax 成功过后才触发 setData 的动作
+
 
 
 ### 20180428

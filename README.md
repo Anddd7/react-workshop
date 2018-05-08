@@ -3,7 +3,7 @@ To learn react together in olo
 
 # task tracker
 ### 20180504
-* 适配新的后端 API
+* TODO 适配新的后端API
 
 
 ### 20180502
@@ -14,7 +14,6 @@ To learn react together in olo
 * redux + ajax
   * 类似 alt, start/process/end 分别触发不同的 action, reducer 根据 action 去决定如何处理数据
   * 在异步事件中调用 action 触发事件机制, 即 ajax 成功过后才触发 setData 的动作
-
 
 
 ### 20180428

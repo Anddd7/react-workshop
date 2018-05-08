@@ -2,6 +2,10 @@
 To learn react together in olo
 
 # task tracker
+### 20180504
+* 适配新的后端 API, 分页查询/创建 Note
+
+
 ### 20180502
 * redux + ajax
   * 在异步事件中调用 action 触发事件机制

@@ -1,10 +1,15 @@
-# react-workshop
-To learn react together in olo
+#Time is Running
+[![Build Status](https://travis-ci.org/Anddd7/react-workshop.svg?branch=master)](https://travis-ci.org/Anddd7/react-workshop)
+[![Coverage Status](https://coveralls.io/repos/github/Anddd7/react-workshop/badge.svg?branch=master)](https://coveralls.io/github/Anddd7/react-workshop?branch=master)
+TODO List React版本, sample&脚手架
 
-# task tracker
+
+### 20180515
+* 移除后端 - 使用 mountebank 支持前端开发
+* 合并react代码 - master进行react-redux开发, alt相关的尝试移到分支(暂时pending)
+
 ### 20180504
 * TODO 适配新的后端API
-
 
 ### 20180502
 *  react + redux

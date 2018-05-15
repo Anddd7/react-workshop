@@ -28,15 +28,7 @@ class Dashboard extends React.Component {
   handleOk = () => this.NoteEdit.current.validateFields((err, values) => {
     if (!err) {
       this.setState({ confirmLoading: true });
-      API.post('/note', values)
-        .then((res) => {
-          console.log(res);
-          this.setState({
-            notes: this.state.notes.concat([res.obj]),
-            confirmLoading: false,
-            visible: false,
-          });
-        });
+      // TODO add Note
     }
   })
 

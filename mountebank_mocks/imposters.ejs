@@ -1,0 +1,20 @@
+{
+  "imposters":[{
+    "port":8010,
+    "protocol":"http",
+    "name":"Mock",
+    "stubs":[{
+      "responses":[{
+        "inject":"<%- stringify(filename,'note/getNoteList.ejs')%>",
+        "_behaviors":{"wait":1000}
+      }],
+      "predicates":[{
+        "and":[{
+          "equals":{"method":"GET"}
+        },{
+          "endsWith":{"path":"/note"}
+        }]
+      }]
+    }]
+  }]
+}

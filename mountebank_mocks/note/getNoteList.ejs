@@ -1,0 +1,18 @@
+function(request){
+  return {
+    headers:{
+      "Content-Type":"application/json",
+      "Access-Control-Allow-Origin":request.headers['Origin'] || 'http://noorigin.com',
+      "Access-Control-Allow-Credentials":true
+    },
+    body:{
+      obj:[{
+        id:'abcdefg',
+        title:'Mock测试',
+        content:'Mock测试....',
+        tags:['tag1','tag2'],
+        status:'IN_PROGRESS'
+      }]
+    }
+  };
+}

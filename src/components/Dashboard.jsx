@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Affix, Button, Modal } from 'antd';
 import { getNotesAsync } from '../actions';
-import API from '../api';
+// import API from '../api';
 
 import NoteEdit from './dashboard/NoteEdit';
 import NoteList from './dashboard/NoteListWithTimeLine';
@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
   handleOk = () => this.NoteEdit.current.validateFields((err, values) => {
     if (!err) {
       this.setState({ confirmLoading: true });
-      // TODO add Note
+      console.log(values);
     }
   })
 

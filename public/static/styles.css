@@ -1,0 +1,16 @@
+.dashboard {
+  min-height: 100vh;
+}
+.notes-content {
+  padding: 20px 30px;
+  border: 1px solid #61affe;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.19);
+}
+.left-timer {
+  width: 100%;
+}
+.text-right {
+  text-align: right;
+}

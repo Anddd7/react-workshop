@@ -1,0 +1,19 @@
+function(request){
+  let note = Object.assign({},JSON.parse(request.body),
+      {
+        id:new Date().toString(),
+        status:'IN_PROGRESS'
+      }
+  );
+
+  return {
+    headers:{
+      "Content-Type":"application/json",
+      "Access-Control-Allow-Origin":request.headers['Origin'] || 'http://noorigin.com',
+      "Access-Control-Allow-Credentials":true
+    },
+    body:{
+        obj:note
+    }
+  };
+}

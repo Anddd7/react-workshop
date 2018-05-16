@@ -1,16 +1,15 @@
-import API from '../api';
-
 /*
  * action types
  */
 export const GET_NOTES_SUCCESS = 'GET_NOTES_SUCCESS';
 export const GET_NOTES_FAILD = 'GET_NOTES_FAILD';
+export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 
 /*
  * action creators
  */
-export function createNote(text) {
-  return { type: 'CREATE_NOTE', text };
+export function addNoteSuccess(res) {
+  return { type: ADD_NOTE_SUCCESS, note: res.obj };
 }
 
 export function getNotesSuccess(res) {
@@ -19,17 +18,3 @@ export function getNotesSuccess(res) {
     notes: res.obj,
   };
 }
-
-export function getNotesFailed(res) {
-  return {
-    type: GET_NOTES_FAILD,
-    errors: [res.msg],
-  };
-}
-
-/**
- * async
- */
-export const getNotesAsync = dispatch => API.get('/note')
-  .then(res => dispatch(getNotesSuccess(res)))
-  .catch(err => dispatch(getNotesFailed(err.response)));

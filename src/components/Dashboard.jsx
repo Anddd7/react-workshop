@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Affix, Button, Modal } from 'antd';
-import { getNotesAsync } from '../actions';
-// import API from '../api';
+import { Row, Col, Affix, Button, Modal, message } from 'antd';
+import { getNotesSuccess, addNoteSuccess } from '../actions';
+import API from '../api';
 
 import NoteEdit from './dashboard/NoteEdit';
 import NoteList from './dashboard/NoteListWithTimeLine';
@@ -18,17 +18,27 @@ class Dashboard extends React.Component {
     confirmLoading: false,
   }
 
-  componentDidMount = () => getNotesAsync(this.props.dispatch)
+  componentDidMount = () => API.get('/note')
+    .then(res => this.props.dispatch(getNotesSuccess(res)))
+    .catch(err => message.error(err.response));
 
   NoteEdit = React.createRef();
 
   showModal = () => this.setState({ visible: true })
-  hiddenModal = () => this.setState({ visible: false })
+  hiddenModal = () => this.setState({ visible: false, confirmLoading: false })
 
-  handleOk = () => this.NoteEdit.current.validateFields((err, values) => {
-    if (!err) {
+  handleOk = () => this.NoteEdit.current.validateFields((errors, values) => {
+    if (!errors) {
       this.setState({ confirmLoading: true });
-      console.log(values);
+      API.post('/note', values)
+        .then((res) => {
+          this.props.dispatch(addNoteSuccess(res));
+          this.hiddenModal();
+        })
+        .catch((err) => {
+          message.error(err.response);
+          this.hiddenModal();
+        });
     }
   })
 

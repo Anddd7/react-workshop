@@ -2,6 +2,7 @@
   min-height: 100vh;
 }
 .notes-content {
+  /* background: rgba(97,175,254,.1); */
   padding: 20px 30px;
   border: 1px solid #61affe;
   border-radius: 4px;

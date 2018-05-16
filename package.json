@@ -15,10 +15,10 @@
     "redux": "^4.0.0"
   },
   "scripts": {
-    "start": "yarn build:less && node scripts/start.js",
-    "start:server": "mb restart --configfile mountebank_mocks/imposters.ejs --logfile log/mb.log --allowInjection",
-    "build": "yarn build:less && node scripts/build.js",
-    "build:less":"lessc --rootpath=static src/less/base.less public/static/styles.css",
+    "start": "yarn build-less && node scripts/start.js",
+    "start-mock-server": "mb restart --configfile mountebank_mocks/imposters.ejs --logfile log/mb.log --allowInjection",
+    "build": "yarn build-less && node scripts/build.js",
+    "build-less":"lessc --rootpath=static src/less/base.less public/static/styles.css",
     "test": "node scripts/test.js --env=jsdom",
     "test:ci": "node scripts/test.js --env=jsdom --coverage"
   },

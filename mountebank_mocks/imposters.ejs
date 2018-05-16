@@ -15,6 +15,19 @@
           "endsWith":{"path":"/note"}
         }]
       }]
+    },
+    {
+      "responses":[{
+        "inject":"<%- stringify(filename,'note/addNote.ejs')%>",
+        "_behaviors":{"wait":1000}
+      }],
+      "predicates":[{
+        "and":[{
+          "equals":{"method":"POST"}
+        },{
+          "endsWith":{"path":"/note"}
+        }]
+      }]
     }]
   }]
 }
